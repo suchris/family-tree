@@ -13,15 +13,13 @@ familySize () {
 // `findMember`: Given a `name`, it will return the `node` where that member exists. Otherwise, returns undefined.
 
 findMember(name) {
-  if (this.value === name) {
-    return this;
+  if(this.value === name) return this;
+  let found = undefined;
+  for (let c of this.children) {
+     found = c.findMember(name);
+     if (found) break;
   }
-  for (let child of this.children) {
-    if (child.value === name) {
-      return child;
-    }
-  }
-  return undefined;
+  return found;
 }
 // `log`: Logs out a specific structure (exampled below) of the family from this point down.
 

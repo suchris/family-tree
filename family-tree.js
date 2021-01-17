@@ -7,7 +7,7 @@ class FamilyTree {
 
 // `familySize`: Returns this size of **this parent and their children.**
 familySize () {
-  
+  return this.children.length + 1;
 }
 
 // `findMember`: Given a `name`, it will return the `node` where that member exists. Otherwise, returns undefined.

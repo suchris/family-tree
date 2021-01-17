@@ -25,8 +25,13 @@ findMember(name) {
 }
 // `log`: Logs out a specific structure (exampled below) of the family from this point down.
 
-log() {
-  let str = ''
+log(depth = 1) {
+  let str = '--'.repeat(depth)
+  str = str + ` ${this.value}`;
+  for (let child of this.children) {
+    str = str + `\n${child.log(depth+1)}`;
+  }
+
   return str
 }
 // `insert`: Inserts a child at this node.
